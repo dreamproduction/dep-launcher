@@ -10,8 +10,8 @@ function upsearch () {
 }
 
 upsearch composer.lock
-test -e composer.lock || exit 1
-test -e vendor/bin/dep || exit 1
+test -e composer.lock || { echo "Could't find project root, exiting" && exit 1; }
+test -e 'vendor/bin/dep' || { echo "Couldn't find deployer in the current project, exiting" && exit 1; }
 
 dep='vendor/bin/dep'
 
