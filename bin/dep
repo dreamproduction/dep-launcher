@@ -1,0 +1,22 @@
+
+#!/bin/bash
+
+directory="$PWD"
+
+function upsearch () {
+    test / == "$PWD" && return || \
+    test -e "$1" && return || \
+    cd .. && upsearch "$1"
+}
+
+upsearch composer.lock
+test -e composer.lock || exit 1
+test -e vendor/bin/dep || exit 1
+
+dep='vendor/bin/dep'
+
+vendor/bin/dep $@
+exit_code=$?
+
+cd $directory
+exit $exit_code

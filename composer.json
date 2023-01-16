@@ -1,0 +1,16 @@
+{
+  "name": "dreamproduction/dep-launcher",
+  "description": "Deployer.php launcher",
+  "type": "library",
+  "license": "GNU GPL v3",
+  "authors": [
+    {
+      "name": "Calin Marian",
+      "email": "calin@dreamproduction.com"
+    }
+  ],
+  "bin": [
+    "bin/dep"
+  ],
+  "require": {}
+}
