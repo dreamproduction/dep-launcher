@@ -3,8 +3,9 @@
 
 directory="$PWD"
 
-function upsearch () {
-    test / == "$PWD" && return || \
+upsearch ()
+{
+    test '/' = "$PWD" && return || \
     test -e "$1" && return || \
     cd .. && upsearch "$1"
 }
